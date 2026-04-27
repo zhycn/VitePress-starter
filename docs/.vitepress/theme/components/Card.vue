@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="vp-card"
-    :class="type"
-  >
+  <div class="vp-card" :class="type">
     <div class="vp-card-icon">
       {{ icon }}
     </div>

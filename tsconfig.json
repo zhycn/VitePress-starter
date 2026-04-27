@@ -15,6 +15,6 @@
       "@/*": ["./docs/.vitepress/*"]
     }
   },
-  "include": ["docs/.vitepress/**/*.ts", "docs/.vitepress/**/*.vue"],
+  "include": ["docs/.vitepress/**/*.ts", "docs/.vitepress/**/*.vue", "docs/.vitepress/env.d.ts"],
   "exclude": ["node_modules", "docs/.vitepress/dist"]
 }

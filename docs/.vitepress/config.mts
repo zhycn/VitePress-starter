@@ -1,6 +1,5 @@
 import { defineConfig } from 'vitepress'
 // import { RssPlugin } from 'vitepress-plugin-rss'
-// import mermaid from 'markdown-it-mermaid'
 import { katex } from '@mdit/plugin-katex'
 
 export default defineConfig({
@@ -63,6 +62,23 @@ export default defineConfig({
     ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }],
     ['meta', { name: 'msapplication-TileColor', content: '#e8740c' }],
     ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0' }],
+    // Google Fonts - Noto Sans SC
+    ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
+    [
+      'link',
+      {
+        rel: 'preconnect',
+        href: 'https://fonts.gstatic.com',
+        crossorigin: 'anonymous'
+      }
+    ],
+    [
+      'link',
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap'
+      }
+    ],
     // KaTeX CSS
     [
       'link',

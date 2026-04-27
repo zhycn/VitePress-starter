@@ -8,10 +8,10 @@ hero:
   actions:
     - theme: brand
       text: 开始使用
-      link: /markdown-examples
+      link: /guide/getting-started
     - theme: alt
-      text: 运行时 API
-      link: /api-examples
+      text: 查看示例
+      link: /examples/markdown
 
 features:
   - title: 极速开发体验

@@ -1,19 +1,10 @@
 <template>
   <div class="not-found">
-    <p class="code">
-      404
-    </p>
-    <h1 class="title">
-      页面未找到
-    </h1>
-    <p class="subtitle">
-      抱歉，您访问的页面不存在或已被移除
-    </p>
+    <p class="code">404</p>
+    <h1 class="title">页面未找到</h1>
+    <p class="subtitle">抱歉，您访问的页面不存在或已被移除</p>
     <div class="actions">
-      <a
-        class="link"
-        href="/"
-      >返回首页</a>
+      <a class="link" href="/">返回首页</a>
     </div>
   </div>
 </template>

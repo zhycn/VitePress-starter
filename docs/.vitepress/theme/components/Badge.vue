@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="vp-badge"
-    :class="type"
-  >
+  <div class="vp-badge" :class="type">
     <slot />
   </div>
 </template>
