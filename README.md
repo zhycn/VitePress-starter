@@ -6,7 +6,7 @@
 
 - **极速开发体验** - Vite 驱动，瞬间启动，HMR 即时更新
 - **Markdown 增强** - 语法高亮、自定义容器、代码分组、Vue 组件嵌入
-- **开箱即用** - 本地搜索、SEO 优化、GitHub Actions 部署、RSS 订阅
+- **开箱即用** - 本地搜索、PWA 支持、SEO 优化、GitHub Actions 部署
 - **高度可定制** - 品牌色、自定义主题、Vue 组件、插件扩展
 - **现代化工程** - TypeScript、ESLint、Prettier、Renovate 自动依赖更新
 
@@ -15,7 +15,7 @@
 ### 环境要求
 
 - Node.js >= 20
-- pnpm >= 9
+- pnpm >= 10
 
 ### 安装
 
@@ -39,6 +39,16 @@ pnpm docs:build
 
 构建产物输出至 `docs/.vitepress/dist`。
 
+### 代码质量
+
+```bash
+pnpm lint              # ESLint 自动修复
+pnpm lint:check        # ESLint 检查
+pnpm format            # Prettier 格式化
+pnpm format:check      # Prettier 检查
+pnpm type-check        # TypeScript 类型检查
+```
+
 ### 预览
 
 ```bash
@@ -58,20 +68,27 @@ pnpm format:check    # 检查格式
 ├── docs/
 │   ├── .vitepress/
 │   │   ├── config.mts          # 站点配置
+│   │   ├── env.d.ts            # 类型声明
 │   │   ├── theme/
 │   │   │   ├── index.ts        # 主题入口
 │   │   │   ├── custom.css      # 自定义样式
 │   │   │   └── components/     # 全局 Vue 组件
-│   │   └── plugins/            # VitePress 插件
+│   │   └── cache/              # 构建缓存（git 忽略）
 │   ├── public/                 # 静态资源
 │   ├── guide/                  # 指南文档
 │   ├── api/                    # API 文档
 │   ├── examples/               # 示例文档
 │   └── index.md                # 首页
+├── .opencode/
+│   └── commands/               # OpenCode 自定义命令（25 个 vp:* 命令）
 ├── .github/
+│   ├── renovate.json           # 依赖自动更新
 │   └── workflows/
 │       └── deploy.yml          # GitHub Pages 部署
 ├── package.json
+├── tsconfig.json
+├── eslint.config.js
+├── AGENTS.md                   # AI 代理指令
 └── README.md
 ```
 
