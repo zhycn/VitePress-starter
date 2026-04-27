@@ -1,4 +1,7 @@
 import { defineConfig } from 'vitepress'
+// import { RssPlugin } from 'vitepress-plugin-rss'
+// import mermaid from 'markdown-it-mermaid'
+import { katex } from '@mdit/plugin-katex'
 
 export default defineConfig({
   lang: 'zh-CN',
@@ -7,6 +10,39 @@ export default defineConfig({
   base: '/VitePress-starter/',
   cleanUrls: true,
   lastUpdated: true,
+  vite: {
+    plugins: [
+      // RSS 插件与 VitePress 2.x 存在兼容性问题，待稳定后启用
+      // RssPlugin({
+      //   hostname: 'https://zhycn.github.io',
+      //   feed: {
+      //     title: 'VitePress Starter',
+      //     description: '开箱即用的 VitePress 文档站点',
+      //     language: 'zh-CN'
+      //   }
+      // })
+      // PWA 插件与 VitePress 2.x alpha 存在兼容性问题，待稳定后启用
+      // VitePWAForVitePress({
+      //   registerType: 'autoUpdate',
+      //   manifest: {
+      //     name: 'VitePress Starter',
+      //     short_name: 'VitePress',
+      //     description: '开箱即用的 VitePress 文档站点',
+      //     theme_color: '#e8740c',
+      //     icons: [
+      //       {
+      //         src: '/favicon.svg',
+      //         sizes: 'any',
+      //         type: 'image/svg+xml'
+      //       }
+      //     ]
+      //   },
+      //   workbox: {
+      //     globPatterns: ['**/*.{js,css,html,woff2}']
+      //   }
+      // })
+    ]
+  },
   sitemap: {
     hostname: 'https://zhycn.github.io/VitePress-starter/'
   },
@@ -14,27 +50,92 @@ export default defineConfig({
     lineNumbers: true,
     image: {
       lazyLoading: true
+    },
+    config: (md) => {
+      // md.use(mermaid) // 与 VitePress 2.x 存在兼容性问题，待稳定后启用
+      md.use(katex)
     }
   },
   head: [
     ['link', { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' }],
-    ['meta', { name: 'theme-color', content: '#e8740c' }]
+    ['meta', { name: 'theme-color', content: '#e8740c' }],
+    ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
+    ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }],
+    ['meta', { name: 'msapplication-TileColor', content: '#e8740c' }],
+    ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0' }],
+    // KaTeX CSS
+    [
+      'link',
+      { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/katex@0.16.45/dist/katex.min.css' }
+    ],
+    // Open Graph
+    ['meta', { property: 'og:type', content: 'website' }],
+    ['meta', { property: 'og:locale', content: 'zh_CN' }],
+    ['meta', { property: 'og:site_name', content: 'VitePress Starter' }],
+    // Twitter Card
+    ['meta', { name: 'twitter:card', content: 'summary_large_image' }]
   ],
   themeConfig: {
     nav: [
       { text: '首页', link: '/' },
-      { text: '示例', link: '/markdown-examples' }
-    ],
-    sidebar: [
+      { text: '指南', link: '/guide/getting-started' },
+      { text: 'API', link: '/api/config' },
+      { text: '示例', link: '/examples/markdown' },
       {
-        text: '示例',
-        collapsed: false,
+        text: '更多',
         items: [
           { text: 'Markdown 扩展', link: '/markdown-examples' },
-          { text: '运行时 API', link: '/api-examples' }
+          { text: '运行时 API', link: '/api-examples' },
+          { text: 'GitHub', link: 'https://github.com/zhycn/VitePress-starter' }
         ]
       }
     ],
+    sidebar: {
+      '/guide/': [
+        {
+          text: '入门',
+          collapsed: false,
+          items: [
+            { text: '快速开始', link: '/guide/getting-started' },
+            { text: '配置指南', link: '/guide/config' },
+            { text: '性能优化', link: '/guide/performance' },
+            { text: '多版本文档', link: '/guide/versioning' }
+          ]
+        }
+      ],
+      '/api/': [
+        {
+          text: 'API 参考',
+          collapsed: false,
+          items: [
+            { text: '配置 API', link: '/api/config' },
+            { text: '运行时 API', link: '/api/runtime' }
+          ]
+        }
+      ],
+      '/examples/': [
+        {
+          text: '示例',
+          collapsed: false,
+          items: [
+            { text: 'Markdown 扩展', link: '/examples/markdown' },
+            { text: '组件示例', link: '/examples/components' },
+            { text: 'Mermaid 图表', link: '/examples/mermaid' },
+            { text: '数学公式', link: '/examples/katex' }
+          ]
+        }
+      ],
+      '/': [
+        {
+          text: '示例',
+          collapsed: false,
+          items: [
+            { text: 'Markdown 扩展', link: '/markdown-examples' },
+            { text: '运行时 API', link: '/api-examples' }
+          ]
+        }
+      ]
+    },
     search: {
       provider: 'local',
       options: {
