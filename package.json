@@ -22,7 +22,6 @@
     "simple-git-hooks": "^2.13.1",
     "typescript-eslint": "^8.59.0",
     "vitepress": "2.0.0-alpha.17",
-    "vitepress-plugin-rss": "^0.4.4",
     "vue-eslint-parser": "^10.4.0"
   },
   "scripts": {

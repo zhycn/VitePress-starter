@@ -1,50 +1,38 @@
 import { defineConfig } from 'vitepress'
-// import { RssPlugin } from 'vitepress-plugin-rss'
+import { withPwa } from '@vite-pwa/vitepress'
 import { katex } from '@mdit/plugin-katex'
 import container from 'markdown-it-container'
 
-export default defineConfig({
+export default withPwa(defineConfig({
   lang: 'zh-CN',
   title: 'VitePress Starter',
   description: '开箱即用的 VitePress 文档站点',
   base: '/VitePress-starter/',
   cleanUrls: true,
   lastUpdated: true,
-  vite: {
-    plugins: [
-      // RSS 插件与 VitePress 2.x 存在兼容性问题，待稳定后启用
-      // RssPlugin({
-      //   hostname: 'https://zhycn.github.io',
-      //   feed: {
-      //     title: 'VitePress Starter',
-      //     description: '开箱即用的 VitePress 文档站点',
-      //     language: 'zh-CN'
-      //   }
-      // })
-      // PWA 插件与 VitePress 2.x alpha 存在兼容性问题，待稳定后启用
-      // VitePWAForVitePress({
-      //   registerType: 'autoUpdate',
-      //   manifest: {
-      //     name: 'VitePress Starter',
-      //     short_name: 'VitePress',
-      //     description: '开箱即用的 VitePress 文档站点',
-      //     theme_color: '#e8740c',
-      //     icons: [
-      //       {
-      //         src: '/favicon.svg',
-      //         sizes: 'any',
-      //         type: 'image/svg+xml'
-      //       }
-      //     ]
-      //   },
-      //   workbox: {
-      //     globPatterns: ['**/*.{js,css,html,woff2}']
-      //   }
-      // })
-    ]
-  },
   sitemap: {
     hostname: 'https://zhycn.github.io/VitePress-starter/'
+  },
+  vite: {},
+  pwa: {
+    registerType: 'autoUpdate',
+    includeAssets: ['favicon.svg'],
+    manifest: {
+      name: 'VitePress Starter',
+      short_name: 'VitePress',
+      description: '开箱即用的 VitePress 文档站点',
+      theme_color: '#e8740c',
+      icons: [
+        {
+          src: '/VitePress-starter/favicon.svg',
+          sizes: '32x32',
+          type: 'image/svg+xml'
+        }
+      ]
+    },
+    workbox: {
+      globPatterns: ['**/*.{js,css,html,svg,png,ico,txt,woff2}']
+    }
   },
   markdown: {
     lineNumbers: true,
@@ -58,7 +46,7 @@ export default defineConfig({
     }
   },
   head: [
-    ['link', { rel: 'icon', href: '/VitePress-starter/favicon.svg', type: 'image/svg+xml' }],
+    ['link', { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' }],
     ['meta', { name: 'theme-color', content: '#e8740c' }],
     ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
     ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }],
@@ -80,11 +68,6 @@ export default defineConfig({
         rel: 'stylesheet',
         href: 'https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap'
       }
-    ],
-    // KaTeX CSS
-    [
-      'link',
-      { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/katex@0.16.45/dist/katex.min.css' }
     ],
     // Open Graph
     ['meta', { property: 'og:type', content: 'website' }],
@@ -211,7 +194,12 @@ export default defineConfig({
       prev: '上一页',
       next: '下一页'
     },
+    notFound: {
+      quote: '抱歉，您访问的页面不存在或已被移除',
+      linkLabel: '返回首页',
+      linkText: '回到首页'
+    },
     externalLinkIcon: true,
     socialLinks: [{ icon: 'github', link: 'https://github.com/zhycn/VitePress-starter' }]
   }
-})
+}))
