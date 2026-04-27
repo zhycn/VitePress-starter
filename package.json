@@ -2,17 +2,33 @@
   "name": "vitepress-starter",
   "version": "1.0.0",
   "type": "module",
+  "packageManager": "pnpm@10.30.1",
   "description": "A VitePress starter site",
   "license": "MIT",
   "engines": {
     "node": ">=20"
   },
   "devDependencies": {
+    "lint-staged": "^16.4.0",
+    "prettier": "^3.8.3",
+    "simple-git-hooks": "^2.13.1",
     "vitepress": "2.0.0-alpha.17"
   },
   "scripts": {
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs"
-  }
+    "docs:preview": "vitepress preview docs",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged"
+  },
+  "lint-staged": {
+    "*.{md,ts,css,json,yml,yaml}": "prettier --write"
+  },
+  "onlyBuiltDependencies": [
+    "esbuild",
+    "simple-git-hooks"
+  ]
 }

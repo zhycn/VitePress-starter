@@ -4,11 +4,21 @@ export default defineConfig({
   lang: 'zh-CN',
   title: 'VitePress Starter',
   description: '开箱即用的 VitePress 文档站点',
+  base: '/VitePress-starter/',
   cleanUrls: true,
   lastUpdated: true,
+  sitemap: {
+    hostname: 'https://zhycn.github.io/VitePress-starter/'
+  },
+  markdown: {
+    lineNumbers: true,
+    image: {
+      lazyLoading: true
+    }
+  },
   head: [
     ['link', { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' }],
-    ['meta', { name: 'theme-color', content: '#3eaf7c' }]
+    ['meta', { name: 'theme-color', content: '#e8740c' }]
   ],
   themeConfig: {
     nav: [
@@ -26,7 +36,39 @@ export default defineConfig({
       }
     ],
     search: {
-      provider: 'local'
+      provider: 'local',
+      options: {
+        locales: {
+          root: {
+            translations: {
+              button: {
+                buttonText: '搜索',
+                buttonAriaLabel: '搜索'
+              },
+              modal: {
+                displayDetails: '显示详细列表',
+                resetButtonTitle: '重置搜索',
+                backButtonTitle: '关闭搜索',
+                noResultsText: '没有结果',
+                footer: {
+                  selectText: '选择',
+                  selectKeyAriaLabel: '输入',
+                  navigateText: '导航',
+                  navigateUpKeyAriaLabel: '上箭头',
+                  navigateDownKeyAriaLabel: '下箭头',
+                  closeText: '关闭',
+                  closeKeyAriaLabel: 'Esc'
+                }
+              }
+            }
+          }
+        },
+        miniSearch: {
+          options: {
+            tokenize: (text: string) => text.match(/[\p{L}\p{N}]+/gu) ?? []
+          }
+        }
+      }
     },
     editLink: {
       pattern: 'https://github.com/zhycn/VitePress-starter/edit/main/docs/:path',
@@ -52,8 +94,6 @@ export default defineConfig({
       next: '下一页'
     },
     externalLinkIcon: true,
-    socialLinks: [
-      { icon: 'github', link: 'https://github.com/zhycn/VitePress-starter' }
-    ]
+    socialLinks: [{ icon: 'github', link: 'https://github.com/zhycn/VitePress-starter' }]
   }
 })

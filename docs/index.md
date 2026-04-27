@@ -2,8 +2,8 @@
 layout: home
 
 hero:
-  name: "VitePress Starter"
-  text: "开箱即用的文档站点"
+  name: 'VitePress Starter'
+  text: '开箱即用的文档站点'
   tagline: 基于 VitePress 构建，快速、美观、易定制
   actions:
     - theme: brand
@@ -21,4 +21,3 @@ features:
   - title: Vue 驱动
     details: 在 Markdown 中直接使用 Vue 组件和模板语法，实现交互式文档
 ---
-
