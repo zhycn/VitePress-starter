@@ -20,3 +20,46 @@
   --vp-c-brand-3: #d06808;
   --vp-c-brand-soft: #f0903018;
 }
+
+.vp-doc .card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  padding: 1.5rem 0;
+  background: transparent;
+  border: none;
+}
+
+.vp-doc .card-grid .vp-card {
+  display: block;
+  margin: 0;
+  height: 100%;
+}
+
+.vp-doc .custom-block.steps {
+  counter-reset: step;
+  padding: 1rem 1.5rem;
+}
+
+.vp-doc .custom-block.steps > h3 {
+  counter-increment: step;
+  position: relative;
+  padding-left: 2.5rem;
+}
+
+.vp-doc .custom-block.steps > h3::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1.75rem;
+  height: 1.75rem;
+  background: var(--vp-c-brand-1);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  font-weight: 600;
+}

@@ -1,6 +1,7 @@
 import { defineConfig } from 'vitepress'
 // import { RssPlugin } from 'vitepress-plugin-rss'
 import { katex } from '@mdit/plugin-katex'
+import container from 'markdown-it-container'
 
 export default defineConfig({
   lang: 'zh-CN',
@@ -51,8 +52,9 @@ export default defineConfig({
       lazyLoading: true
     },
     config: (md) => {
-      // md.use(mermaid) // 与 VitePress 2.x 存在兼容性问题，待稳定后启用
       md.use(katex)
+      md.use(container, 'card-grid')
+      md.use(container, 'steps')
     }
   },
   head: [
@@ -136,7 +138,6 @@ export default defineConfig({
           items: [
             { text: 'Markdown 扩展', link: '/examples/markdown' },
             { text: '组件示例', link: '/examples/components' },
-            { text: 'Mermaid 图表', link: '/examples/mermaid' },
             { text: '数学公式', link: '/examples/katex' }
           ]
         }

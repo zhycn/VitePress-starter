@@ -17,15 +17,25 @@ export default {
 
 ## 自定义容器
 
-::: info 信息这是一条信息提示。:::
+::: info
+这是一条信息提示。
+:::
 
-::: tip 小贴士这是一条小贴士。:::
+::: tip
+这是一条小贴士。
+:::
 
-::: warning 警告这是一条警告。:::
+::: warning
+这是一条警告。
+:::
 
-::: danger 危险这是一条危险警告。:::
+::: danger
+这是一条危险警告。
+:::
 
-::: details 详情这是一个可折叠的详情块。:::
+::: details
+这是一个可折叠的详情块。
+:::
 
 ## 代码组
 
@@ -59,7 +69,9 @@ createApp(App).mount('#app')
 ::: card-grid
 
 <Card title="快速开始" details="了解如何快速上手 VitePress Starter 模板" type="info" icon="🚀" />
+
 <Card title="配置指南" details="掌握站点配置、主题定制和插件扩展" type="tip" icon="⚙️" />
+
 <Card title="组件示例" details="在 Markdown 中直接使用 Vue 组件" type="warning" icon="🧩" />
 
 :::
