@@ -56,7 +56,7 @@ export default defineConfig({
     }
   },
   head: [
-    ['link', { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' }],
+    ['link', { rel: 'icon', href: '/VitePress-starter/favicon.svg', type: 'image/svg+xml' }],
     ['meta', { name: 'theme-color', content: '#e8740c' }],
     ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
     ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }],

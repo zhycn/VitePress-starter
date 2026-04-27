@@ -4,7 +4,7 @@ layout: home
 hero:
   name: 'VitePress Starter'
   text: '开箱即用的文档站点'
-  tagline: 基于 VitePress 构建，快速、美观、易定制
+  tagline: 基于 VitePress 2.x 构建，快速、美观、易定制
   actions:
     - theme: brand
       text: 开始使用

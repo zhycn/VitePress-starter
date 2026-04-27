@@ -8,16 +8,17 @@ outline: deep
 
 主要的 `useData()` API 可以用来访问当前页面的站点、主题和页面数据。它在 `.md` 和 `.vue` 文件中都可以使用：
 
-```md
+**输入**
+
+````md
+```vue
 <script setup>
 import { useData } from 'vitepress'
 
 const { theme, page, frontmatter } = useData()
 </script>
 
-## 运行结果
-
-### 主题数据
+## 运行结果 ### 主题数据
 
 <pre>{{ theme }}</pre>
 
@@ -29,6 +30,9 @@ const { theme, page, frontmatter } = useData()
 
 <pre>{{ frontmatter }}</pre>
 ```
+````
+
+**输出**
 
 <script setup>
 import { useData } from 'vitepress'
